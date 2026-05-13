@@ -1,344 +1,209 @@
-# 📦 GestiStock - Application de Gestion de Stock
+# Gestion de Stock — Application Laravel 12
 
 <div align="center">
 
-[![Laravel](https://img.shields.io/badge/Laravel-12-FF2D20?style=for-the-badge&logo=laravel&logoColor=white)](https://laravel.com)
-[![PHP](https://img.shields.io/badge/PHP-8.2-777BB4?style=for-the-badge&logo=php&logoColor=white)](https://php.net)
-[![MySQL](https://img.shields.io/badge/MySQL-8.0-4479A1?style=for-the-badge&logo=mysql&logoColor=white)](https://mysql.com)
-[![License](https://img.shields.io/badge/License-MIT-green.svg?style=for-the-badge)](LICENSE)
-[![Status](https://img.shields.io/badge/Status-Stable-blue?style=for-the-badge)]()
+[![Laravel](https://img.shields.io/badge/Laravel-12-FF2D20?style=flat&logo=laravel&logoColor=white)](https://laravel.com)
+[![PHP](https://img.shields.io/badge/PHP-8.2-777BB4?style=flat&logo=php&logoColor=white)](https://php.net)
+[![MySQL](https://img.shields.io/badge/MySQL-8.0-4479A1?style=flat&logo=mysql&logoColor=white)](https://mysql.com)
+[![Bootstrap](https://img.shields.io/badge/Bootstrap-5-7952B3?style=flat&logo=bootstrap&logoColor=white)](https://getbootstrap.com)
+[![Licence](https://img.shields.io/badge/Licence-MIT-16a34a?style=flat)](LICENSE)
+[![Statut](https://img.shields.io/badge/Statut-Stable-4f46e5?style=flat)]()
 
-**Application web de gestion de stock développée avec Laravel 12**
-
-[![Fonctionnalités](https://img.shields.io/badge/Fonctionnalités-Complètes-brightgreen?style=flat-square)]()
-[![Sécurité](https://img.shields.io/badge/Sécurité-RBAC-orange?style=flat-square)]()
-[![Responsive](https://img.shields.io/badge/Responsive-Oui-informational?style=flat-square)]()
+Application web de gestion de stock développée avec Laravel 12 dans le cadre d'un projet de fin de Licence 3 Informatique.
 
 </div>
 
 ---
 
-## 📋 Table des Matières
+## Apercu
 
-- [À propos](#-à-propos)
-- [Fonctionnalités](#-fonctionnalités)
-- [Capture d'écran](#-capture-décran)
-- [Stack Technique](#-stack-technique)
-- [Installation](#-installation)
-- [Comptes de Démo](#-comptes-de-démo)
-- [Structure du Projet](#-structure-du-projet)
-- [Architecture & Bonnes Pratiques](#-architecture--bonnes-pratiques)
-- [Auteur](#-auteur)
-- [License](#-license)
+![Tableau de bord](screenshots/01-dashboard.png)
+*Tableau de bord avec statistiques, graphiques animés et alertes de stock critique*
 
----
+![Liste des produits](screenshots/02-produits.png)
+*Gestion des produits avec filtres, badges de statut et actions rapides*
 
-## 🎯 À propos
+![Historique des mouvements](screenshots/03-mouvements.png)
+*Historique complet des entrées, sorties et ajustements de stock*
 
-**GestiStock** est une application web complète de gestion de stock conçue pour les petites et moyennes entreprises. Elle permet de gérer efficacement les produits, catégories, fournisseurs et les mouvements de stock (entrées/sorties) avec une interface intuitive et des fonctionnalités avancées comme les alertes de stock faible et les exports de données.
-
-Développée dans le cadre d'un projet académique (Licence 3 Informatique), cette application met en œuvre les bonnes pratiques du développement web moderne avec Laravel 12.
+![Mode sombre](screenshots/04-dark-mode.png)
+*Interface en mode sombre, mémorisé entre les sessions*
 
 ---
 
-## ✨ Fonctionnalités
+## Fonctionnalites
 
-### 🔐 Authentification & Sécurité
-- ✅ **Inscription / Connexion** sécurisée avec Laravel Breeze
-- ✅ **Gestion des rôles** : Admin (accès total) et Gestionnaire (lecture + mouvements)
-- ✅ **Protection des routes** par middleware selon les permissions
-- ✅ **Déconnexion** sécurisée
-
-### 📊 Gestion des Produits
-- ✅ **CRUD complet** des produits (création, lecture, modification, suppression)
-- ✅ **Upload d'images** pour les produits
-- ✅ **Gestion des catégories** et des fournisseurs
-- ✅ **Suivi des quantités** en temps réel
-
-### 📦 Mouvements de Stock
-- ✅ **Entrées de stock** (achats, retours, productions)
-- ✅ **Sorties de stock** (ventes, pertes, consommations)
-- ✅ **Historique complet** des mouvements
-- ✅ **Transactions DB** pour garantir l'intégrité des données
-
-### 📈 Tableau de Bord
-- ✅ **Statistiques en temps réel** (valeur du stock, produits critiques, etc.)
-- ✅ **Graphique Chart.js** de l'évolution des stocks
-- ✅ **Derniers mouvements** affichés
-- ✅ **Indicateurs clés** de performance
-
-### 🚨 Alertes & Notifications
-- ✅ **Alertes automatiques** de stock faible
-- ✅ **Seuils configurables** par produit
-- ✅ **Liste des produits critiques**
-
-### 📤 Exports de Données
-- ✅ **Export Excel** des produits et mouvements (avec filtre par dates)
-- ✅ **Export PDF** des rapports d'alertes et fiches produits
-- ✅ **Génération de rapports** professionnels
-
-### 🎨 Interface Utilisateur
-- ✅ **Design responsive** Bootstrap 5
-- ✅ **Icônes Bootstrap Icons**
-- ✅ **Navigation intuitive** avec sidebar
-- ✅ **Formulaires validés** côté serveur
+| Fonctionnalité | Description |
+|---|---|
+| Authentification | Connexion et déconnexion sécurisées via Laravel Breeze |
+| Gestion des rôles | Administrateur (accès complet) et Gestionnaire (lecture + mouvements) |
+| Protection des routes | Middleware Spatie par rôle sur toutes les routes sensibles |
+| CRUD Produits | Création, modification, suppression avec upload d'image |
+| CRUD Catégories | Gestion des catégories avec compteur de produits liés |
+| CRUD Fournisseurs | Gestion des fournisseurs avec coordonnées et compteur produits |
+| Entrées de stock | Enregistrement des réapprovisionnements avec motif |
+| Sorties de stock | Enregistrement des sorties avec vérification du stock disponible |
+| Ajustements | Correction manuelle du stock avec justification obligatoire |
+| Tableau de bord | 4 métriques clés, 3 graphiques Chart.js animés, alertes critiques |
+| Alertes automatiques | Détection et affichage des produits sous le seuil d'alerte |
+| Historique par produit | Traçabilité complète avec timeline et statistiques par produit |
+| Recherche globale | Recherche en temps réel dans la navbar (produits, catégories, fournisseurs) |
+| Export Excel | Export des produits et de l'historique des mouvements avec filtre par dates |
+| Export PDF | Rapport des alertes et fiche individuelle par produit |
+| Mode clair / sombre | Thème mémorisé dans le navigateur via localStorage |
+| Interface responsive | Compatible desktop et tablette via Bootstrap 5 |
 
 ---
 
-## 📸 Capture d'écran
+## Stack technique
 
-### Tableau de Bord
-![Dashboard](screenshots/dashboard.png)
-*[screenshot_dashboard] - Vue d'ensemble avec statistiques et graphique*
-
-### Gestion des Produits
-![Produits](screenshots/produits.png)
-*[screenshot_produits] - Liste des produits avec actions CRUD*
-
-### Mouvements de Stock
-![Mouvements](screenshots/mouvements.png)
-*[screenshot_mouvements] - Historique des entrées et sorties*
-
-### Alertes Stock Faible
-![Alertes](screenshots/alertes.png)
-*[screenshot_alertes] - Produits en rupture ou stock critique*
+| Technologie | Version | Usage |
+|---|---|---|
+| Laravel | 12.x | Framework backend principal |
+| PHP | 8.2 | Langage serveur |
+| MySQL | 8.0 | Base de données relationnelle |
+| Bootstrap | 5.3 | Interface et mise en page |
+| Bootstrap Icons | 1.11 | Icônes de l'interface |
+| Chart.js | 4.x | Graphiques animés du tableau de bord |
+| Laravel Breeze | 2.x | Authentification |
+| Spatie Laravel Permission | 6.x | Gestion des rôles et permissions |
+| Maatwebsite Excel | 3.x | Export au format Excel (.xlsx) |
+| Barryvdh DomPDF | 2.x | Génération de rapports PDF |
 
 ---
 
-## 🛠 Stack Technique
-
-| Catégorie | Technologie | Version |
-|-----------|-------------|---------|
-| **Framework Backend** | Laravel | 12.x |
-| **Langage** | PHP | 8.2+ |
-| **Base de données** | MySQL | 8.0+ (XAMPP) |
-| **Frontend** | Bootstrap | 5.x |
-| **Icônes** | Bootstrap Icons | 1.x |
-| **Graphiques** | Chart.js | 4.x |
-| **Authentification** | Laravel Breeze | 2.x |
-| **Permissions** | Spatie Laravel Permission | 6.x |
-| **Export Excel** | Maatwebsite Excel | 3.x |
-| **Export PDF** | Barryvdh DomPDF | 2.x |
-| **Serveur de dev** | Laravel Artisan | Intégré |
-
----
-
-## 🚀 Installation
+## Installation
 
 ### Prérequis
 
-- **XAMPP** (ou équivalent : WAMP, MAMP) avec :
-  - PHP 8.2+
-  - MySQL 8.0+
-  - Apache
-- **Composer** (gestionnaire de dépendances PHP)
-- **Node.js & npm** (pour les assets frontend)
-- **Git**
+- XAMPP avec PHP 8.2 ou supérieur et MySQL
+- Composer
+- Git
 
-### Étape 1 : Cloner le projet
+### Étapes
+
+**1. Cloner le dépôt**
 
 ```bash
-# Cloner le dépôt
-git clone https://github.com/votre-utilisateur/gestistock.git
-
-# Accéder au répertoire
-cd gestistock
+git clone https://github.com/votre-utilisateur/gestion-stock.git
+cd gestion-stock
 ```
 
-### Étape 2 : Installer les dépendances
+**2. Installer les dépendances PHP**
 
 ```bash
-# Installer les dépendances PHP
 composer install
-
-# Installer les dépendances Node.js
-npm install && npm run build
 ```
 
-### Étape 3 : Configurer l'environnement
+**3. Configurer l'environnement**
 
 ```bash
-# Copier le fichier d'environnement
 cp .env.example .env
-
-# Générer la clé d'application
 php artisan key:generate
 ```
 
-### Étape 4 : Configurer la base de données
+Ouvrir le fichier `.env` et renseigner les paramètres de base de données :
 
-1. **Démarrer XAMPP** (Apache et MySQL)
-2. **Créer la base de données** via phpMyAdmin :
-   - Nom : `gestistock`
-   - Encodage : `utf8mb4_unicode_ci`
-
-3. **Modifier le fichier `.env`** :
 ```env
+APP_NAME="Gestion de Stock"
+APP_URL=http://127.0.0.1:8000
+
 DB_CONNECTION=mysql
-DB_HOST=127.0.0.1
+DB_HOST=localhost
 DB_PORT=3306
-DB_DATABASE=gestistock
+DB_DATABASE=gestion_stock
 DB_USERNAME=root
 DB_PASSWORD=
+
+CACHE_DRIVER=file
+SESSION_DRIVER=file
 ```
 
-### Étape 5 : Exécuter les migrations et seeders
+**4. Créer la base de données**
+
+Ouvrir phpMyAdmin (`http://localhost/phpmyadmin`) et créer une base de données nommée `gestion_stock` avec l'encodage `utf8mb4_unicode_ci`.
+
+**5. Exécuter les migrations et les données de démonstration**
 
 ```bash
-# Exécuter les migrations (crée les tables)
 php artisan migrate
-
-# Exécuter les seeders (peuple la base avec les rôles et comptes de démo)
 php artisan db:seed
+php artisan storage:link
 ```
 
-### Étape 6 : Lancer l'application
+**6. Lancer l'application**
 
 ```bash
-# Option 1 : Serveur de développement Laravel (recommandé)
 php artisan serve
-
-# L'application est accessible à : http://localhost:8000
 ```
 
-**Ou avec XAMPP :**
-- Copier le dossier `gestistock` dans `C:\xampp\htdocs\`
-- Accéder à : `http://localhost/gestistock/public`
+L'application est accessible à l'adresse `http://127.0.0.1:8000`.
 
 ---
 
-## 👤 Comptes de Démo
+## Comptes de demonstration
 
-Deux comptes sont pré-configurés pour tester les différentes fonctionnalités :
-
-| Rôle | Email | Mot de passe | Permissions |
-|------|-------|--------------|-------------|
-| **Administrateur** | `admin@gestistock.com` | `password` | Accès total (CRUD complet, gestion utilisateurs) |
-| **Gestionnaire** | `gestionnaire@gestistock.com` | `password` | Lecture + mouvements de stock (entrées/sorties) |
-
-> ⚠️ **Important** : Ces comptes sont destinés uniquement à des fins de démonstration. Pensez à modifier les mots de passe en production.
+| Rôle | Email | Mot de passe | Accès |
+|---|---|---|---|
+| Administrateur | admin@gestistock.com | password | Accès complet — CRUD, exports, ajustements |
+| Gestionnaire | gestionnaire@gestistock.com | password | Lecture et mouvements de stock uniquement |
 
 ---
 
-## 📁 Structure du Projet
+## Structure du projet
 
 ```
-gestistock/
+gestion-stock/
 ├── app/
+│   ├── Exports/                  # Classes d'export Excel
 │   ├── Http/
-│   │   ├── Controllers/          # Contrôleurs (ProductController, etc.)
-│   │   ├── Middleware/           # Middleware personnalisé
-│   │   ├── Requests/             # Form Requests (validation)
-│   │   └── Kernel.php            # Kernel HTTP
-│   ├── Models/                   # Modèles Eloquent
-│   │   ├── Product.php           # Modèle Produit
-│   │   ├── Category.php          # Modèle Catégorie
-│   │   ├── Supplier.php          # Modèle Fournisseur
-│   │   ├── StockMovement.php     # Modèle Mouvement
-│   │   └── User.php              # Modèle Utilisateur
-│   ├── Providers/                # Service Providers
-│   └── View/                     # View Components
-│
-├── bootstrap/                    # Fichiers de bootstrap
-│
-├── config/                       # Fichiers de configuration
-│
+│   │   ├── Controllers/          # Contrôleurs ressources
+│   │   └── Requests/             # Form Requests (validation)
+│   └── Models/                   # Modèles Eloquent avec relations
 ├── database/
-│   ├── migrations/               # Migrations de base de données
-│   ├── seeders/                  # Seeders (données de test)
-│   └── factories/                # Factories (génération de données)
-│
-├── public/                       # Point d'entrée (index.php)
-│   └── assets/                   # Assets compilés
-│
+│   ├── migrations/               # Structure des tables
+│   └── seeders/                  # Données de démonstration
 ├── resources/
-│   ├── views/                    # Vues Blade
-│   │   ├── dashboard.blade.php   # Tableau de bord
-│   │   ├── products/             # Vues produits
-│   │   ├── categories/           # Vues catégories
-│   │   ├── suppliers/            # Vues fournisseurs
-│   │   ├── movements/            # Vues mouvements
-│   │   └── layouts/              # Layouts (app.blade.php)
-│   ├── js/                       # JavaScript
-│   └── css/                      # CSS/SCSS
-│
+│   └── views/
+│       ├── layouts/              # Layout principal Bootstrap 5
+│       ├── dashboard.blade.php   # Tableau de bord
+│       ├── produits/             # Vues CRUD produits
+│       ├── categories/           # Vues CRUD catégories
+│       ├── fournisseurs/         # Vues CRUD fournisseurs
+│       ├── mouvements/           # Vues entrées, sorties, ajustements
+│       ├── pdf/                  # Templates de rapports PDF
+│       └── auth/                 # Vues d'authentification
 ├── routes/
-│   ├── web.php                   # Routes web
-│   ├── api.php                   # Routes API (si applicable)
-│   └── console.php               # Commandes Artisan
-│
-├── storage/                      # Fichiers générés (logs, uploads)
-│   └── app/
-│       └── public/
-│           └── products/         # Images des produits
-│
-├── tests/                        # Tests unitaires et fonctionnels
-│
-├── .env                          # Variables d'environnement
-├── .env.example                  # Exemple d'environnement
-├── artisan                       # CLI Laravel
-├── composer.json                 # Dépendances PHP
-├── package.json                  # Dépendances Node.js
-└── README.md                     # Ce fichier
+│   └── web.php                   # Définition des routes
+├── screenshots/                  # Captures d'écran du projet
+├── .env.example                  # Modèle de configuration
+└── README.md
 ```
 
 ---
 
-## 🏗 Architecture & Bonnes Pratiques
+## Choix techniques
 
-Ce projet met en œuvre les bonnes pratiques du développement Laravel :
+**Laravel 12** a été retenu pour sa maturité, sa documentation complète et son écosystème riche (Eloquent, Breeze, Artisan), qui permettent de développer une application robuste tout en respectant les bonnes pratiques MVC.
 
-### Architecture MVC
-- **Modèles** : Utilisation d'Eloquent ORM avec relations (hasMany, belongsTo)
-- **Vues** : Templates Blade avec héritage de layout
-- **Contrôleurs** : Contrôleurs ressources RESTful
+**Spatie Laravel Permission** a été préféré à une gestion manuelle des rôles pour sa fiabilité, sa flexibilité et son intégration native avec les middlewares Laravel.
 
-### Validation des Données
-- **Form Requests** : Classes dédiées pour la validation (`StoreProductRequest`, `UpdateProductRequest`)
-- **Règles de validation** : Définies de manière centralisée et réutilisable
+**Bootstrap 5** a été choisi à la place d'un framework JavaScript (React, Vue) pour garder l'architecture simple et maintenable dans le contexte d'un projet académique, tout en obtenant une interface responsive et professionnelle.
 
-### Sécurité
-- **Middleware** : Protection des routes par rôle (`role:admin`, `role:gestionnaire`)
-- **CSRF Protection** : Tokens CSRF automatiques
-- **XSS Protection** : Échappement automatique dans Blade
-- **SQL Injection** : Prévention via Eloquent ORM
+**Form Requests** séparés des contrôleurs pour centraliser la validation, améliorer la lisibilité du code et faciliter la maintenance.
 
-### Gestion des Rôles
-- **Spatie Permission** : Système RBAC (Role-Based Access Control)
-- **Permissions granulaires** : `product.create`, `product.update`, `movement.create`, etc.
-
-### Intégrité des Données
-- **Transactions DB** : Utilisation de `DB::transaction()` pour les mouvements de stock critiques
-- **Foreign Keys** : Contraintes d'intégrité référentielle
-
-### Performance
-- **Eager Loading** : Chargement anticipé des relations pour éviter le problème N+1
-- **Query Scopes** : Scopes locaux pour les requêtes courantes
-- **Caching** : Possibilité de mettre en cache les données statiques
+**DB::transaction()** sur chaque mouvement de stock pour garantir l'intégrité des données en cas d'erreur lors de la mise à jour simultanée du stock et de l'enregistrement du mouvement.
 
 ---
 
-## 👨‍💻 Auteur
+## Auteur
 
-**Étudiant en Licence 3 Informatique**  
-🎓 Formation en développement web et conception d'applications
+Etudiant en Licence 3 Informatique — en recherche d'un stage de 3 mois en développement web.
 
-📧 **Contact** : votre.email@universite.fr  
-💼 **Recherche de stage** : Stage de 3 mois en développement web/fullstack  
-📅 **Disponibilité** : À partir de [Mois/Année]
+Contact : votre.email@example.com
 
 ---
 
-## 📄 License
+## Licence
 
-Ce projet est open-source sous licence [MIT](LICENSE).
-
----
-
-<div align="center">
-
-**⚡ Développé avec Laravel 12 par un étudiant passionné**
-
-[⬆ Retour en haut](#-gestistock---application-de-gestion-de-stock)
-
-</div>
+Ce projet est distribué sous licence MIT. Voir le fichier [LICENSE](LICENSE) pour plus de détails.
