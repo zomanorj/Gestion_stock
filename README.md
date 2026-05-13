@@ -85,7 +85,7 @@ Application web de gestion de stock développée avec Laravel 12 dans le cadre d
 **1. Cloner le dépôt**
 
 ```bash
-git clone https://github.com/votre-utilisateur/gestion-stock.git
+git clone https://github.com/manoarj/gestion-stock.git
 cd gestion-stock
 ```
 
@@ -200,7 +200,7 @@ gestion-stock/
 
 Etudiant en Licence 3 Informatique — en recherche d'un stage de 3 mois en développement web.
 
-Contact : votre.email@example.com
+Contact : manoarajaonah05@gmail.com
 
 ---
 
